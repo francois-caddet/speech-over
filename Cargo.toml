@@ -1,10 +1,11 @@
-cargo-features = ["edition2021"]
 [package]
 name = "speech-over"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies.async-std]
+version = "1.11.0"
+features = ["attributes"]
 
 [dependencies.at-spi]
 version = "0.1.0"

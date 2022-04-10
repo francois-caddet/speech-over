@@ -1,4 +1,3 @@
-cargo-features = ["edition2021"]
 [package]
 name = "at-spi"
 version = "0.1.0"
@@ -7,12 +6,12 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-async-trait = "0.1.52"
+async-trait = "0.1.53"
 async_static = "0.1.3"
 futures-lite = "1.12.0"
-once_cell = "1.9.0"
-serde = "1.0.132"
-zbus = "2.0.0-beta.8"
-zvariant = "3.0.0"
+once_cell = "1.10.0"
+serde = "1.0.136"
+zbus = "2.1.1"
+zvariant = "3.1.2"
 
 [features]

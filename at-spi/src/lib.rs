@@ -7,7 +7,7 @@ pub use bus::{BusProxy as Bus, StatusProxy as Status};
 use async_static::async_static;
 
 async_static! {
-    static ref CONNECTION: zbus::Connection = connect().await.unwrap();
+    pub static ref CONNECTION: zbus::Connection = connect().await.unwrap();
 }
 
 async fn connect() -> zbus::Result<zbus::Connection> {

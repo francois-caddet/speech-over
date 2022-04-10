@@ -127,8 +127,8 @@
           buildInputs =
             [
               rust
-              cargoHome
-            ];
+            ] ++ (if isDevShell then [ ]
+            else [ cargoHome ]);
 
           src = if isDevShell then null else self;
 
