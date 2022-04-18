@@ -9,6 +9,15 @@ pub struct Object {
     path: OwnedObjectPath,
 }
 
+impl Default for Object {
+    fn default() -> Self {
+        Self {
+            name: String::from("org.a11y.atspi.Registry"),
+            path: OwnedObjectPath::try_from("/org/a11y/atspi/accessible/root").unwrap(),
+        }
+    }
+}
+
 impl Object {
     pub async fn iface<'i, I>(self) -> zbus::Result<I>
     where

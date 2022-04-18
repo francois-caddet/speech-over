@@ -21,13 +21,10 @@ trait Accessible {
     fn get_attributes(&self) -> zbus::Result<std::collections::HashMap<String, String>>;
 
     /// GetChildAtIndex method
-    fn get_child_at_index(
-        &self,
-        index: i32,
-    ) -> zbus::Result<(String, zbus::zvariant::OwnedObjectPath)>;
+    fn get_child_at_index(&self, index: i32) -> zbus::Result<crate::Object>;
 
     /// GetChildren method
-    fn get_children(&self) -> zbus::Result<Vec<(String, zbus::zvariant::OwnedObjectPath)>>;
+    fn get_children(&self) -> zbus::Result<Vec<crate::Object>>;
 
     /// GetIndexInParent method
     fn get_index_in_parent(&self) -> zbus::Result<i32>;
