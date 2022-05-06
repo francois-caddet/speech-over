@@ -3,6 +3,8 @@ mod object;
 pub use object::Object;
 mod bus;
 pub use bus::{BusProxy as Bus, StatusProxy as Status};
+mod relation;
+pub use relation::Relation;
 
 use async_static::async_static;
 

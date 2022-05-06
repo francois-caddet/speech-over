@@ -36,9 +36,7 @@ trait Accessible {
     fn get_localized_role_name(&self) -> zbus::Result<String>;
 
     /// GetRelationSet method
-    fn get_relation_set(
-        &self,
-    ) -> zbus::Result<Vec<(u32, Vec<(String, zbus::zvariant::OwnedObjectPath)>)>>;
+    fn get_relation_set(&self) -> zbus::Result<Vec<(u32, Vec<crate::Object>)>>;
 
     /// GetRole method
     fn get_role(&self) -> zbus::Result<u32>;
@@ -71,5 +69,5 @@ trait Accessible {
 
     /// Parent property
     #[dbus_proxy(property)]
-    fn parent(&self) -> zbus::Result<(String, zbus::zvariant::OwnedObjectPath)>;
+    fn parent(&self) -> zbus::Result<(String, zvariant::OwnedObjectPath)>;
 }
