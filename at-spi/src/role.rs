@@ -1,4 +1,3 @@
-use crate::Object;
 use serde::Deserialize;
 use zbus::zvariant::Type;
 

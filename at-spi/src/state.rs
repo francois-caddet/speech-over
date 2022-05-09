@@ -1,7 +1,6 @@
-use crate::Object;
 use flagset::{flags, FlagSet};
 use serde::Deserialize;
-use std::ops::Deref;
+
 use zbus::zvariant::Type;
 
 #[derive(Debug, Type, PartialEq)]
@@ -10,7 +9,7 @@ pub struct StateSet(FlagSet<State>);
 
 use std::fmt;
 
-use serde::de::{self, Deserializer, SeqAccess, Visitor};
+use serde::de::{Deserializer, SeqAccess, Visitor};
 
 struct StateVisitor;
 
@@ -25,10 +24,10 @@ impl<'de> Visitor<'de> for StateVisitor {
     where
         A: SeqAccess<'de>,
     {
-        Ok(StateSet(FlagSet::new_truncated(
-            (value.next_element::<u32>()?.unwrap() as u64) << 32
-                | value.next_element::<u32>()?.unwrap() as u64,
-        )))
+        let s = value.next_element::<u32>()?.unwrap() as u64;
+        let s = s | (value.next_element::<u32>()?.unwrap() as u64) << 32;
+        println!("{:0>32b}", s);
+        Ok(StateSet(FlagSet::new(s).unwrap()))
     }
 }
 
