@@ -36,16 +36,16 @@ trait Accessible {
     fn get_localized_role_name(&self) -> zbus::Result<String>;
 
     /// GetRelationSet method
-    fn get_relation_set(&self) -> zbus::Result<Vec<(u32, Vec<crate::Object>)>>;
+    fn get_relation_set(&self) -> zbus::Result<Vec<crate::Relation>>;
 
     /// GetRole method
-    fn get_role(&self) -> zbus::Result<u32>;
+    fn get_role(&self) -> zbus::Result<crate::Role>;
 
     /// GetRoleName method
     fn get_role_name(&self) -> zbus::Result<String>;
 
     /// GetState method
-    fn get_state(&self) -> zbus::Result<Vec<u32>>;
+    fn get_state(&self) -> zbus::Result<crate::StateSet>;
 
     /// AccessibleId property
     #[dbus_proxy(property)]

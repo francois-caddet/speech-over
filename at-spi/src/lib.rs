@@ -5,6 +5,11 @@ mod bus;
 pub use bus::{BusProxy as Bus, StatusProxy as Status};
 mod relation;
 pub use relation::Relation;
+mod role;
+pub use role::Role;
+mod state;
+pub use state::State;
+pub use state::StateSet;
 
 use async_static::async_static;
 
