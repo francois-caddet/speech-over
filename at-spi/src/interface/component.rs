@@ -15,30 +15,30 @@ use zbus::dbus_proxy;
 #[dbus_proxy(interface = "org.a11y.atspi.Component")]
 trait Component {
     /// Contains method
-    fn contains(&self, x: i32, y: i32, coord_type: u32) -> zbus::Result<bool>;
+    fn contains(&self, x: i32, y: i32, coord_type: crate::geometry::Coord) -> zbus::Result<bool>;
 
     /// GetAccessibleAtPoint method
     fn get_accessible_at_point(
         &self,
         x: i32,
         y: i32,
-        coord_type: u32,
-    ) -> zbus::Result<(String, zbus::zvariant::OwnedObjectPath)>;
+        coord_type: crate::geometry::Coord,
+    ) -> zbus::Result<crate::Object>;
 
     /// GetAlpha method
     fn get_alpha(&self) -> zbus::Result<f64>;
 
     /// GetExtents method
-    fn get_extents(&self, coord_type: u32) -> zbus::Result<(i32, i32, i32, i32)>;
+    fn get_extents(&self, coord_type: crate::geometry::Coord) -> zbus::Result<(i32, i32, i32, i32)>;
 
     /// GetLayer method
-    fn get_layer(&self) -> zbus::Result<u32>;
+    fn get_layer(&self) -> zbus::Result<crate::geometry::Layer>;
 
     /// GetMDIZOrder method
     fn get_mdizorder(&self) -> zbus::Result<i16>;
 
     /// GetPosition method
-    fn get_position(&self, coord_type: u32) -> zbus::Result<(i32, i32)>;
+    fn get_position(&self, coord_type: crate::geometry::Coord) -> zbus::Result<(i32, i32)>;
 
     /// GetSize method
     fn get_size(&self) -> zbus::Result<(i32, i32)>;
@@ -59,11 +59,11 @@ trait Component {
         y: i32,
         width: i32,
         height: i32,
-        coord_type: u32,
+        coord_type: crate::geometry::Coord,
     ) -> zbus::Result<bool>;
 
     /// SetPosition method
-    fn set_position(&self, x: i32, y: i32, coord_type: u32) -> zbus::Result<bool>;
+    fn set_position(&self, x: i32, y: i32, coord_type: crate::geometry::Coord) -> zbus::Result<bool>;
 
     /// SetSize method
     fn set_size(&self, width: i32, height: i32) -> zbus::Result<bool>;

@@ -10,6 +10,7 @@ pub use role::Role;
 mod state;
 pub use state::State;
 pub use state::StateSet;
+pub mod geometry;
 
 use async_static::async_static;
 

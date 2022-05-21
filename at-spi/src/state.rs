@@ -26,7 +26,6 @@ impl<'de> Visitor<'de> for StateVisitor {
     {
         let s = value.next_element::<u32>()?.unwrap() as u64;
         let s = s | (value.next_element::<u32>()?.unwrap() as u64) << 32;
-        println!("{:0>32b}", s);
         Ok(StateSet(FlagSet::new(s).unwrap()))
     }
 }
