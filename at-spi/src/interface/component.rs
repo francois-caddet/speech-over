@@ -29,7 +29,8 @@ trait Component {
     fn get_alpha(&self) -> zbus::Result<f64>;
 
     /// GetExtents method
-    fn get_extents(&self, coord_type: crate::geometry::Coord) -> zbus::Result<(i32, i32, i32, i32)>;
+    fn get_extents(&self, coord_type: crate::geometry::Coord)
+        -> zbus::Result<(i32, i32, i32, i32)>;
 
     /// GetLayer method
     fn get_layer(&self) -> zbus::Result<crate::geometry::Layer>;
@@ -63,7 +64,12 @@ trait Component {
     ) -> zbus::Result<bool>;
 
     /// SetPosition method
-    fn set_position(&self, x: i32, y: i32, coord_type: crate::geometry::Coord) -> zbus::Result<bool>;
+    fn set_position(
+        &self,
+        x: i32,
+        y: i32,
+        coord_type: crate::geometry::Coord,
+    ) -> zbus::Result<bool>;
 
     /// SetSize method
     fn set_size(&self, width: i32, height: i32) -> zbus::Result<bool>;

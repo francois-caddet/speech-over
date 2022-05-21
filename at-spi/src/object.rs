@@ -20,13 +20,13 @@ impl Default for Object {
 }
 
 impl Object {
-    pub async fn iface<'i, I>(self) -> zbus::Result<I>
+    pub async fn iface<'i, I>(&self) -> zbus::Result<I>
     where
         I: From<zbus::Proxy<'i>> + zbus::ProxyDefault,
     {
         ProxyBuilder::new(crate::CONNECTION.await)
-            .destination(self.name)?
-            .path(self.path)?
+            .destination(self.name.clone())?
+            .path(self.path.clone())?
             .interface(I::INTERFACE)?
             .build()
             .await
