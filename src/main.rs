@@ -25,7 +25,8 @@ async fn main() {
                 "{:?}",
                 comp.get_extents(at_spi::geometry::Coord::Screen).await
             );
-            println!("{:?}", comp.get_mdizorder().await);
+            println!("{:?}", comp.get_mdiz_order().await);
+            println!("{:?}", comp.get_layer().await);
             //            }
         }
     }

@@ -36,7 +36,8 @@ trait Component {
     fn get_layer(&self) -> zbus::Result<crate::geometry::Layer>;
 
     /// GetMDIZOrder method
-    fn get_mdizorder(&self) -> zbus::Result<i16>;
+    #[dbus_proxy(name = "GetMDIZOrder")]
+    fn get_mdiz_order(&self) -> zbus::Result<i16>;
 
     /// GetPosition method
     fn get_position(&self, coord_type: crate::geometry::Coord) -> zbus::Result<(i32, i32)>;
